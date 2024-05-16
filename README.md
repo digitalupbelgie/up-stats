@@ -6,7 +6,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "github link"
+            "url": "https://github.com/spatie/laravel-package-tools"
         }
     ]
     ```
