@@ -6,7 +6,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/spatie/laravel-package-tools"
+            "url": "https://github.com/digitalupbelgie/up-stats"
         }
     ]
     ```
