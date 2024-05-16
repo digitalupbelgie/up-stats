@@ -36,13 +36,12 @@
       'upstats-bg-color': '#e2e8f0',
       'upstats-text-color': '#000000',
       'upstats-widget-color': '#ffffff',
-      'upstats-linegraph-color': '#a3e635',
-      'upstats-piegraph-color-1': '#a3e635',
-      'upstats-piegraph-color-2': '#4ade80',
-      'upstats-piegraph-color-3': '#22d3ee',
-      'upstats-piegraph-color-4': '#facc15',
-      'upstats-piegraph-color-5': '#f87171',
     },
+    ```
+   
+    If you wish to alter the color scheme of the graphs, you'll need to publish the dashboard view and make the adjustments directly.
+    ```bash
+    php artisan vendor:publish --tag=uptags-views
     ```
 
 5. Create a route named `upstats.goback` to provide a return point when the user wants to click on the back button:
