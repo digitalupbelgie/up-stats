@@ -1,0 +1,42 @@
+{
+    "name": "yonidebleeker/upstats",
+    "keywords": [
+        "laravel",
+        "UpStats"
+    ],
+    "description": "A package to get insights on your website",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Yonidebleeker\\UpStats\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yoni De Bleeker"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "spatie/laravel-package-tools": "^1.16",
+        "mobiledetect/mobiledetectlib": "^4.8"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yonidebleeker\\UpStats\\UpStatsServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "laravel/pint": "^1.15",
+        "pestphp/pest": "^2.34",
+        "mockery/mockery": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
