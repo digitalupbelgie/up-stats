@@ -18,6 +18,10 @@ class UpStatsController extends Controller
     */
     public function getDashboardData(Request $request)
     {
+        if ($request->user() !== null && $request->user()->canAccessUpStats()) {
+            return redirect('/');
+        } 
+
         // Retrieve start and end dates from the request
         $input_start_date = $request->start_date ?? null; //2024-05-15
         $input_end_date = $request->end_date ?? null;

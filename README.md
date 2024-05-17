@@ -48,12 +48,19 @@
     php artisan vendor:publish --tag=upstats-views
     ```
 
-5. Create a route named `upstats.goback` to provide a return point when the user wants to click on the back button:
+5. Create a route named `upstats.goback` to provide a return point when the user wants to click on the back button. This is required.
 
     ```php
     Route::get('/url', function () {
         // redirect here 
     })->name('upstats.goback');
+    ```
+
+6. To protect your routes, implement the UpStatsUser interface in your user model and import the necessary function.
+    ```php
+    public function canAccessStats(): bool {
+        // return true or false
+    }
     ```
 
 ## Usage
