@@ -20,7 +20,7 @@
 3. Execute the package installation command:
 
     ```bash
-    php artisan upstats::install
+    php artisan upstats:install
     ```
 
 4. Ensure that Tailwind CSS is installed in your project. Append the following line to the `tailwind.config.js` file at the end of the `content` object:
@@ -36,12 +36,16 @@
       'upstats-bg-color': '#e2e8f0',
       'upstats-text-color': '#000000',
       'upstats-widget-color': '#ffffff',
+      'upstats-widget-title-color': '#000000',
+      'upstats-widget-widget-text-color': '#000000',
+      'upstats-backbutton-color': '#ffffff',
+      'upstats-backbutton-text-color': '#000000'
     },
     ```
    
     If you wish to alter the color scheme of the graphs, you'll need to publish the dashboard view and make the adjustments directly.
     ```bash
-    php artisan vendor:publish --tag=uptags-views
+    php artisan vendor:publish --tag=upstats-views
     ```
 
 5. Create a route named `upstats.goback` to provide a return point when the user wants to click on the back button:
@@ -54,7 +58,7 @@
 
 ## Usage
 
-1. In your `app.php`, within the `->withMiddleware(function (Middleware $middleware) {` section, add the following:
+1. In your `bootstrap/app.php`, within the `->withMiddleware(function (Middleware $middleware) {` section, add the following:
 
     ```php
     $middleware->alias([
@@ -68,11 +72,11 @@
     use Yonidebleeker\UpStats\Http\Middleware\AssignCookie;
     ```
 
-2. To use this package, group your routes and apply the middleware:
+2. To utilize this package, group the routes you wish to monitor for statistics and then apply the middleware:
 
     ```php
     Route::middleware(['cookie'])->group(function () {
-        // Your routes here
+        // Place your routes to be monitored here
     });
     ```
 

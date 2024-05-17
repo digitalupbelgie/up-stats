@@ -79,7 +79,7 @@ class UpStatsController extends Controller
         $source = $this->getSource($start_date, $end_date);
 
         // Return the dashboard view with the fetched data if there is no start and end date in the request the data will be fetched for the last month
-        return view('UpStats::dashboard', [
+        return view('upstats::dashboard', [
             'mostPageViews' => $mostPageViews,
             'leastPageViews' => $leastPageViews,
             'averageVisitorsEachDay' => $averageVisitorsEachDay,
