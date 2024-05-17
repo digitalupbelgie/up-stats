@@ -8,18 +8,18 @@
 <body class="text-upstats-text-color">
     <header class="flex flex-col px-5 items-center text-center xl:text-left xl:items-start xl:flex-row xl:justify-between">
         <div class="my-8 xl:my-8 flex flex-col xl:flex-row">
-            <button class="absolute top-3 left-3 xl:static xl:top-3 xl:left-3 bg-upstats-widget-color font-bold p-2 xl:mr-6 rounded" onclick="window.location.href='{{ route('upstats.goback') }}'">Terug</button>
+            <button class="absolute bg-upstats-backbutton-color text-upstats-backbutton-text-color top-3 left-3 xl:static xl:top-3 xl:left-3 font-bold p-2 xl:mr-6 rounded" onclick="window.location.href='{{ route('upstats.goback') }}'">Terug</button>
             <h1 class="mt-8 xl:mt-0 text-5xl font-bold ">Digital Up - Analytics</h1>
         </div>
         <div class="flex flex-col xl:flex-row xl:justify-center w-3/6 mb-auto mt-auto">
             <p class="m-3">Van:</p>
             <div class="relative">
-                <input id="startDate" type="date" class="block rounded-lg p-2 w-full bg-upstats-widget-color border border-gray-300 py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <input id="startDate" type="date" class="block rounded-lg p-2 w-full text-upstats-widget-widget-text-color bg-upstats-widget-color border border-gray-300 py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
             </div>
 
             <p class="m-3">Tot:</p>
             <div class="relative">
-                <input id="endDate" type="date" class="block rounded-lg p-2 w-full bg-upstats-widget-color border border-gray-300 py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <input id="endDate" type="date" class="block rounded-lg p-2 w-full text-upstats-widget-widget-text-color bg-upstats-widget-color border border-gray-300 py-2 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
             </div>
             <button class="font-bold py-6 xl:py-2 px-4 rounded" onclick="clearFilter()">Verwijder Filter</button>
         </div>
@@ -29,9 +29,9 @@
     <div class= "xl:w-4/5 px-5">
       <div class="flex flex-col xl:flex-row justify-between">
         <div class="xl:w-1/6 px-4 py-8 my-4 bg-upstats-widget-color shadow-md rounded-xl flex flex-col">
-            <p class="font-bold text-1xl mr-2 mb-4">Gem Bezoekers</p>
+            <p class="font-bold text-upstats-widget-title-color text-1xl mr-2 mb-4">Gem Bezoekers</p>
             <div class="flex flex-row mb-4">
-                <p class="text-2xl">{{ $averageVisitorsEachDay }}</p>
+                <p class="text-2xl text-upstats-widget-widget-text-color">{{ $averageVisitorsEachDay }}</p>
                 @php
                 $previousChange = $previousPeriodComparison["averageVisitorsEachDay"];
                 $changeColorClass = $previousChange > 0 ? 'text-green-400 bg-green-50' : ($previousChange < 0 ? 'text-red-400 bg-red-50' : 'text-gray-600 bg-gray-50');
@@ -43,9 +43,9 @@
         </div>
 
         <div class="xl:w-1/6 px-4 py-8 my-4 bg-upstats-widget-color shadow-md rounded-xl flex flex-col">
-            <p class="font-bold text-1xl mr-2 mb-4">Bounce Percentage</p>
+            <p class="font-bold text-upstats-widget-title-color text-1xl mr-2 mb-4">Bounce Percentage</p>
             <div class="flex flex-row mb-4">
-                <p class="text-2xl">{{ $bounce_rate }}%</p>
+                <p class="text-2xl text-upstats-widget-widget-text-color">{{ $bounce_rate }}%</p>
                 @php
                 $previousChange = $previousPeriodComparison["bounceRate"];
                 $changeColorClass = $previousChange > 0 ? 'text-green-400 bg-green-50' : ($previousChange < 0 ? 'text-red-400 bg-red-50' : 'text-gray-600 bg-gray-50');
@@ -56,9 +56,9 @@
         </div>
 
         <div class="xl:w-1/6 px-4 py-8 my-4 bg-upstats-widget-color shadow-md rounded-xl flex flex-col">
-            <p class="font-bold text-1xl mr-2 mb-4">Gem Sessie Duur</p>
+            <p class="font-bold text-upstats-widget-title-color text-1xl mr-2 mb-4">Gem Sessie Duur</p>
             <div class="flex flex-row mb-4">
-                <p class="text-2xl">{{ $average_time }}min</p>
+                <p class="text-2xl text-upstats-widget-widget-text-color">{{ $average_time }}min</p>
                 @php
                 $previousChange = $previousPeriodComparison["averageTime"];
                 $changeColorClass = $previousChange > 0 ? 'text-green-400 bg-green-50' : ($previousChange < 0 ? 'text-red-400 bg-red-50' : 'text-gray-600 bg-gray-50');
@@ -69,9 +69,9 @@
         </div>
 
         <div class="xl:w-1/6 px-4 py-8 my-4 bg-upstats-widget-color shadow-md rounded-xl flex flex-col">
-            <p class="font-bold text-1xl mr-2 mb-4">Mobiele Gebruikers</p>
+            <p class="font-bold text-upstats-widget-title-color text-1xl mr-2 mb-4">Mobiele Gebruikers</p>
             <div class="flex flex-row mb-4">
-            <p class="text-2xl">{{ $desktop_and_mobile_visitors["mobile"] }}%</p>
+            <p class="text-2xl text-upstats-widget-widget-text-color">{{ $desktop_and_mobile_visitors["mobile"] }}%</p>
             @php
             $previousChange = $previousPeriodComparison["desktopAndMobileVisitors"]["mobile"];
             $changeColorClass = $previousChange > 0 ? 'text-green-400 bg-green-50' : ($previousChange < 0 ? 'text-red-400 bg-red-50' : 'text-gray-600 bg-gray-50');
@@ -82,9 +82,9 @@
         </div>
 
         <div class="xl:w-1/6 px-4 py-8 my-4 bg-upstats-widget-color shadow-md rounded-xl flex flex-col">
-            <p class="font-bold text-1xl mr-2 mb-4">Desktop Gebruikers</p>
+            <p class="font-bold text-upstats-widget-title-color text-1xl mr-2 mb-4">Desktop Gebruikers</p>
             <div class="flex flex-row mb-4">
-            <p class="text-2xl">{{ $desktop_and_mobile_visitors["desktop"] }}%</p>
+            <p class="text-2xl text-upstats-widget-widget-text-color">{{ $desktop_and_mobile_visitors["desktop"] }}%</p>
             @php
             $previousChange = $previousPeriodComparison["desktopAndMobileVisitors"]["desktop"];
             $changeColorClass = $previousChange > 0 ? 'text-green-400 bg-green-50' : ($previousChange < 0 ? 'text-red-400 bg-red-50' : 'text-gray-600 bg-gray-50');
@@ -97,11 +97,11 @@
 
       <div class="flex flex-col xl:flex-row justify-between">
         <div class="xl:w-6/12 px-4 py-8 my-4 bg-upstats-widget-color shadow-md rounded-xl flex flex-col">
-            <p class="font-bold text-1xl mr-2 mb-4">Bezoekers</p>
+            <p class="font-bold text-upstats-widget-title-color text-1xl mr-2 mb-4">Bezoekers</p>
             <canvas id="visitors" class="w-full h-1/2 m-4"></canvas>
         </div>
         <div class="xl:w-5/12 px-4 py-8 my-4 bg-upstats-widget-color shadow-md rounded-xl flex flex-col">
-            <p class="font-bold text-1xl mr-2 mb-4">Bezoekers Afkomst</p>
+            <p class="font-bold text-upstats-widget-title-color text-1xl mr-2 mb-4">Bezoekers Afkomst</p>
             <canvas id="source" class="w-full h-1/2 m-4"></canvas>
         </div>
       </div>
@@ -109,22 +109,22 @@
 
     <div class="flex flex-col xl:w-1/5 px-5">
       <div class="px-4 py-8 my-4 bg-upstats-widget-color shadow-md rounded-xl flex flex-col">
-          <p class="font-bold text-1xl mr-2 mb-4">Meest bekeken pagina's</p>
+          <p class="font-bold text-1xl text-upstats-widget-title-color mr-2 mb-4">Meest bekeken pagina's</p>
           @foreach ($mostPageViews as $item)
-          <p class="text-l mb-4">{{ $loop->iteration }}. {{ $item['name'] }} - {{ $item['count'] }}</p>
+          <p class="text-l text-upstats-widget-widget-text-color mb-4">{{ $loop->iteration }}. {{ $item['name'] }} - {{ $item['count'] }}</p>
           @endforeach
       </div>
 
       <div class="px-4 py-8 my-4 bg-upstats-widget-color shadow-md rounded-xl flex flex-col">
-          <p class="font-bold text-1xl mr-2 mb-4">Minst Bekeken Pagina's</p>
+          <p class="font-bold text-upstats-widget-title-color text-1xl mr-2 mb-4">Minst Bekeken Pagina's</p>
           @foreach ($leastPageViews as $item)
-          <p class="text-l mb-4">{{ $loop->iteration }}. {{ $item['name'] }} - {{ $item['count'] }}</p>
+          <p class="text-l text-upstats-widget-widget-text-color mb-4">{{ $loop->iteration }}. {{ $item['name'] }} - {{ $item['count'] }}</p>
           @endforeach
       </div>
     </div>
   </div>
 
-  <footer class="w-full bg-upstats-widget-color">
+  <footer class="w-full">
     <p class="py-2 text-center">Digital up © 2024</p>
   </footer>
 </body>
