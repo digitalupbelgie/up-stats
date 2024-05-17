@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
             $table->text('cookie');
-            $table->enum('device_type', ['phone', 'desktop']);
+            $table->enum('device_type', ['mobile', 'desktop']);
             $table->string('source')->nullable();
             $table->timestamps();
         });
