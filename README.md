@@ -29,7 +29,7 @@
     "./vendor/yonidebleeker/upstats/resources/views/*.blade.php"
     ```
 
-    Additionally, copy the following code into the `tailwind.config.js` if you want to customize the colors you can change them:
+ 5. Additionally, copy the following code into tailwind.config.js if you want to customize the colors. To modify them, add this to the theme -> extend object:
 
     ```javascript
     colors: {
