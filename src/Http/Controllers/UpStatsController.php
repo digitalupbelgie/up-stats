@@ -18,6 +18,10 @@ class UpStatsController extends Controller
     */
     public function getDashboardData(Request $request)
     {
+        if ($request->user() !== null && $request->user()->canAccessUpStats()) {
+            return redirect('/');
+        } 
+
         // Retrieve start and end dates from the request
         $input_start_date = $request->start_date ?? null; //2024-05-15
         $input_end_date = $request->end_date ?? null;
@@ -79,7 +83,7 @@ class UpStatsController extends Controller
         $source = $this->getSource($start_date, $end_date);
 
         // Return the dashboard view with the fetched data if there is no start and end date in the request the data will be fetched for the last month
-        return view('UpStats::dashboard', [
+        return view('upstats::dashboard', [
             'mostPageViews' => $mostPageViews,
             'leastPageViews' => $leastPageViews,
             'averageVisitorsEachDay' => $averageVisitorsEachDay,
