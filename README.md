@@ -1,6 +1,6 @@
 ## Requirements
 
-- **PHP:** version 8.0 or higher
+- **PHP:** version 8.1 or higher
 - **Tailwind:** version 3.4.3
 - **Laravel:** version 10 or higher
 
@@ -62,7 +62,7 @@
     })->name('upstats.goback');
     ```
 
-6. To protect your routes, implement the UpStatsUser interface in your user model and import the necessary function.
+6. To protect your routes, implement the UpStatsUser interface in your user model and import the required function. If you prefer not to protect the dashboard route, skip this step and proceed to Usage step 1.
     ```php
     public function canAccessStats(): bool {
         // return true or false
@@ -75,7 +75,7 @@
         'upstatsAdmin' => UpstatsAdmin::class,
     ]);
     ```
-Don't forget to import the middleware!
+    Don't forget to import the middleware!
 
     ```php
     use Digitalup\UpStats\Http\Middleware\UpstatsAdmin;
@@ -83,12 +83,10 @@ Don't forget to import the middleware!
 
 ## Usage
 
-1. In your `bootstrap/app.php`, within the `->withMiddleware(function (Middleware $middleware) {` section, add the following:
+1. In your `bootstrap/app.php`, within the `->withMiddleware(function (Middleware $middleware) {` section, add the following in the `middleware -> alias` array of the previous step:
 
     ```php
-    $middleware->alias([
         'cookie' => AssignCookie::class,
-    ]);
     ```
 
     Don't forget to import the middleware!
