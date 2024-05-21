@@ -69,7 +69,7 @@
     }
     ```
 
-7. In your `bootstrap/app.php`, within the `->withMiddleware(function (Middleware $middleware) {` section implement the middeware to give specific users acces the dashboard
+7. In your `bootstrap/app.php`, within the `->withMiddleware(function (Middleware $middleware) {` section implement the middeware to give specific users access to the dashboard.
     ```php
     $middleware->alias([
         'upstatsAdmin' => UpstatsAdmin::class,
@@ -109,7 +109,7 @@ Don't forget to import the middleware!
 
 ## Cookies
 
-**Note:** This package uses cookies, specifically the `upstats-user` cookie. Therefore, you must comply with a cookie policy and have a cookie banner in place.
+**Note:** This package uses cookies, specifically the `upstats_user_cookie` cookie. Therefore, you must comply with a cookie policy and have a cookie banner in place.
 
 ## Credits
 
