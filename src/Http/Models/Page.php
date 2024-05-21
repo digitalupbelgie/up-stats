@@ -1,9 +1,9 @@
 <?php
 
-namespace Yonidebleeker\UpStats\Http\Models;
+namespace Digitalup\UpStats\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Yonidebleeker\UpStats\Http\Models\Pagevisit;
+use Digitalup\UpStats\Http\Models\Pagevisit;
 
 class Page extends Model
 {

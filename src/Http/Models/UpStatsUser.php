@@ -1,6 +1,6 @@
 <?php
 
-namespace Yonidebleeker\UpStats\Http\Models;
+namespace Digitalup\UpStats\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

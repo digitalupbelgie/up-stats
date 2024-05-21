@@ -1,11 +1,11 @@
 <?php
 
 test('get the service provider', function () {
-    $this->assertTrue(class_exists(\Yonidebleeker\UpStats\UpStatsServiceProvider::class));
+    $this->assertTrue(class_exists(\Digitalup\UpStats\UpStatsServiceProvider::class));
 });
 
 test('get the controller', function () {
-    $this->assertTrue(class_exists(\Yonidebleeker\UpStats\Http\Controllers\UpStatsController::class));
+    $this->assertTrue(class_exists(\Digitalup\UpStats\Http\Controllers\UpStatsController::class));
 });
 
 test('get cookies from request', function () {

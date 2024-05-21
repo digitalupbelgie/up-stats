@@ -1,3 +1,9 @@
+## Requirements
+
+- **PHP:** version 8.0 or higher
+- **Tailwind:** version 3.4.3
+- **Laravel:** version 10 or higher
+
 ## Installation
 
 1. Add the git repository in the `composer.json` file:
@@ -26,7 +32,7 @@
 4. Ensure that Tailwind CSS is installed in your project. Append the following line to the `tailwind.config.js` file at the end of the `content` object:
 
     ```javascript
-    "./vendor/yonidebleeker/upstats/resources/views/*.blade.php"
+    "./vendor/digitalup/upstats/resources/views/*.blade.php"
     ```
 
  5. Additionally, copy the following code into tailwind.config.js if you want to customize the colors. To modify them, add this to the theme -> extend object:
@@ -63,6 +69,18 @@
     }
     ```
 
+7. In your `bootstrap/app.php`, within the `->withMiddleware(function (Middleware $middleware) {` section implement the middeware to give specific users acces the dashboard
+    ```php
+    $middleware->alias([
+        'upstatsAdmin' => UpstatsAdmin::class,
+    ]);
+    ```
+Don't forget to import the middleware!
+
+    ```php
+    use Digitalup\UpStats\Http\Middleware\UpstatsAdmin;
+    ```
+
 ## Usage
 
 1. In your `bootstrap/app.php`, within the `->withMiddleware(function (Middleware $middleware) {` section, add the following:
@@ -76,7 +94,7 @@
     Don't forget to import the middleware!
 
     ```php
-    use Yonidebleeker\UpStats\Http\Middleware\AssignCookie;
+    use Digitalup\UpStats\Http\Middleware\AssignCookie;
     ```
 
 2. To utilize this package, group the routes you wish to monitor for statistics and then apply the middleware:
@@ -88,6 +106,10 @@
     ```
 
 3. Navigate to `domain.com/upstats` to access and utilize the package dashboard within your Laravel application!
+
+## Cookies
+
+**Note:** This package uses cookies, specifically the `upstats-user` cookie. Therefore, you must comply with a cookie policy and have a cookie banner in place.
 
 ## Credits
 

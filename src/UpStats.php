@@ -1,12 +1,12 @@
 <?php
 
-namespace Yonidebleeker\UpStats;
+namespace Digitalup\UpStats;
 
 use Detection\MobileDetect;
 use Illuminate\Http\Request;
-use Yonidebleeker\UpStats\Http\Models\Page;
-use Yonidebleeker\UpStats\Http\Models\Pagevisit;
-use Yonidebleeker\UpStats\Http\Models\Visitor;
+use Digitalup\UpStats\Http\Models\Page;
+use Digitalup\UpStats\Http\Models\Pagevisit;
+use Digitalup\UpStats\Http\Models\Visitor;
 
 class UpStats
 {
@@ -62,7 +62,7 @@ class UpStats
 
         // Filter the cookies to find the one with the name 'visitor_id'
         $visitorIdCookie = array_filter($cookies, function ($cookie) {
-            return strpos($cookie, 'user_cookie') !== false;
+            return strpos($cookie, 'upstats_user_cookie') !== false;
         });
 
         // If the 'visitor_id' cookie is found, return it; otherwise, return null

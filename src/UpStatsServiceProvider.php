@@ -1,6 +1,6 @@
 <?php
 
-namespace Yonidebleeker\UpStats;
+namespace Digitalup\UpStats;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;

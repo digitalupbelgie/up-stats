@@ -1,11 +1,11 @@
 <?php
 
-namespace Yonidebleeker\UpStats\Http\Middleware;
+namespace Digitalup\UpStats\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
-use Yonidebleeker\UpStats\UpStats;
+use Digitalup\UpStats\UpStats;
 
 class AssignCookie
 {
@@ -19,12 +19,12 @@ class AssignCookie
     public function handle(Request $request, Closure $next)
     {
         $cookie = "";
-        if (!$request->cookie('user_cookie')) {
+        if (!$request->cookie('upstats_user_cookie')) {
             $cookieValue = uniqid();
             // Set the cookie with a name 'user_cookie' and the generated value
-            Cookie::queue('user_cookie', $cookieValue, 60); // 60 is the number of minutes the cookie will be valid
+            Cookie::queue('upstats_user_cookie', $cookieValue, 60); // 60 is the number of minutes the cookie will be valid
 
-            $cookie = 'insights_user_cookie=' . $cookieValue;
+            $cookie = 'upstats_user_cookie=' . $cookieValue;
             $request->headers->set('cookie', $cookie);
         }
 
