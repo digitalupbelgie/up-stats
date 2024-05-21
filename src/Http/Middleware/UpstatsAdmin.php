@@ -16,15 +16,15 @@ class UpstatsAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         $user = $request->user();
-        
+
         if (!$user) {
             return redirect('/');
         }
         
-        if (!$user->canAccessUpStats()) {
+        if (!$user->canAccessStats()) {
             return redirect('/');
         }
 
