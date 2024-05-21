@@ -20,7 +20,7 @@
 2. Install the package via Composer:
 
     ```bash
-    composer require yonidebleeker/upstats
+    composer require digitalup/upstats
     ```
 
 3. Execute the package installation command:
