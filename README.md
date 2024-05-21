@@ -62,14 +62,15 @@
     })->name('upstats.goback');
     ```
 
-6. To protect your routes, implement the UpStatsUser interface in your user model and import the required function. If you prefer not to protect the dashboard route, skip this step and proceed to Usage step 1.
+6. To protect your routes, implement the UpStatsUser interface in your user model and import the required function. This step is crucial! If you wish to define your own access rules, create a custom middleware and associate it with the name "upstatsAdmin". By doing so, you can bypass step 7.
     ```php
     public function canAccessStats(): bool {
         // return true or false
     }
     ```
 
-7. In your `bootstrap/app.php`, within the `->withMiddleware(function (Middleware $middleware) {` section implement the middeware to give specific users access to the dashboard.
+7. **In Laravel 11**, within your `bootstrap/app.php`, within the `->withMiddleware(function (Middleware $middleware) {` section, implement the middleware to give specific users access to the dashboard.
+
     ```php
     $middleware->alias([
         'upstatsAdmin' => UpstatsAdmin::class,
@@ -81,9 +82,15 @@
     use Digitalup\UpStats\Http\Middleware\UpstatsAdmin;
     ```
 
+    **In Laravel 10**, you need to add this line :
+    ```php
+    'cookie' =>  \Digitalup\UpStats\Http\Middleware\AssignCookie::class,
+    ``` 
+    in `app/http/kernel.php` in the `$middlewareAliases` array.
+
 ## Usage
 
-1. In your `bootstrap/app.php`, within the `->withMiddleware(function (Middleware $middleware) {` section, add the following in the `middleware -> alias` array of the previous step:
+1. **In Laravel 11**, within your `bootstrap/app.php`, within the `->withMiddleware(function (Middleware $middleware) {` section, add the following in the `middleware -> alias` array:
 
     ```php
         'cookie' => AssignCookie::class,
@@ -94,6 +101,11 @@
     ```php
     use Digitalup\UpStats\Http\Middleware\AssignCookie;
     ```
+    **In Laravel 10**, you need to add this line :
+     ```php
+    'upstatsAdmin' => \Digitalup\UpStats\Http\Middleware\UpStatsAdmin::class,
+    ``` 
+    in `app/http/kernel.php` in the `$middlewareAliases` array.
 
 2. To utilize this package, group the routes you wish to monitor for statistics and then apply the middleware:
 
